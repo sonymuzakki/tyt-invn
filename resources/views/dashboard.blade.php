@@ -171,7 +171,7 @@
               <div class="card-header">
                 <h4>Request Users</h4>
                 <div class="card-header-action">
-                  {{--  <a href="datareq" class="btn btn-danger">View More <i class="fas fa-chevron-right"></i></a>  --}}
+                  <a href="datareq" class="btn btn-danger">View More <i class="fas fa-chevron-right"></i></a>
                 </div>
               </div>
               <div class="card-body p-0">

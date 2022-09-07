@@ -9,6 +9,7 @@ use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\LaporanReqController;
 use App\Http\Controllers\LoginController;
 use App\Models\laporan_request;
+use App\Models\login as ModelsLogin;
 use Illuminate\Auth\Events\Login;
 
 /*
@@ -22,13 +23,14 @@ use Illuminate\Auth\Events\Login;
 |
 */
 
-Route::get('/', function () {
+Route::get('/dahsboard', function () {
     $totalusers = users::count();
     $totalinven = inventory::count();
     $totallaporan = laporan_request::count();
     $totallaptop = inventory::where('jenis','laptop')->count();
     $totalpc = inventory::where('jenis','pc')->count();
-    $data = laporan_request::paginate(5);
+    // $data = laporan_request::paginate(5);
+    $data = laporan_request::where('created_at', now())->get();
     // $usersterakhir = users::where('created_at');
     return view('dashboard',compact('totalusers','totalinven','totallaporan','totallaptop','totalpc','data'));
 });
@@ -58,9 +60,18 @@ Route::get('/datainven',[InventoryController::class,'datainven'])->name('datainv
 Route::get('/prosesreq/{idr}',[LaporanReqController::class,'prosesreq'])->name('prosesreq');
 Route::post('/updateproses/{idr}',[LaporanReqController::class,'update'])->name('update');
 
-//Login Admin
-Route::get('/loginadmin',[LoginController::class,'loginadmin'])->name('loginadmin');
-Route::get('/login',[LoginController::class,'login'])->name('login');
-
+//Login users
+Route::get('/',[LoginController::class,'login'])->name('login');
 Route::get('/users',[LoginController::class,'users'])->name('users');
 Route::post('/loginproses',[LoginController::class,'loginproses'])->name('loginproses');
+
+//admin login
+Route::get('/adminlogin',[LoginController::class,'adminlogin'])->name('adminlogin');
+Route::post('/adminproses',[LoginController::class,'adminproses'])->name('adminproses');
+Route::get('/register',[LoginController::class,'register'])->name('register');
+Route::post('/regisproses',[LoginController::class,'regisproses'])->name('regisproses');
+
+
+
+// error
+Route::get('/404',[InventoryController::class,'error'])->name('404');

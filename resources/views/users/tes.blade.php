@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
   <title>TINVES | Toyota Inventory System </title>
+  <link rel="icon" href="../assets/img/29.png" width="50 " class="img-rounded-circle">
+
 
   <!-- General CSS Files -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
@@ -34,10 +36,10 @@
         <ul class="navbar-nav navbar-right">
           <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
             <img alt="image" src="../assets/img/avatar/avatar-1.png" class="rounded-circle mr-1">
-            <div class="d-sm-none d-lg-inline-block">Hi, Users</div></a>
+            <div class="d-sm-none d-lg-inline-block">Hi, users</div></a>
             <div class="dropdown-menu dropdown-menu-right">
               <div class="dropdown-divider"></div>
-              <a href="login" class="dropdown-item has-icon text-danger">
+              <a href="/" class="dropdown-item has-icon text-danger">
                 <i class="fas fa-sign-out-alt"></i> Logout
               </a>
             </div>
@@ -61,14 +63,14 @@
               <li class="nav-item dropdown">
                 <a href="#" class="nav-link has-dropdown"><i class="far fa-user"></i> <span>Users</span></a>
                 <ul class="dropdown-menu">
-                  <li><a class="nav-link" href="requsers">Laporan Request Support</a></li>
+                  <li><a class="nav-link" href="">Laporan Request Support</a></li>
                 </ul>
               </li>
               <li class="nav-item dropdown">
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-plug"></i> <span>Module</span></a>
                 <ul class="dropdown-menu">
-                  <li><a class="nav-link" href="">Komputer</a></li>
-                  <li><a class="nav-link" href="">Printer</a></li>
+                  <li><a class="nav-link" href="408">Komputer</a></li>
+                  <li><a class="nav-link" href="404">Printer</a></li>
                 </ul>
               </li>
         </aside>

@@ -22,7 +22,7 @@
                                 <select class="form-control" name="idu" aria-label="Default Select example">
                                     <option>Select Option ..</option>
                                 @foreach ($users as $users )
-                                    <option value="1">{{ $users->nama}}</option>
+                                    <option value="{{ $users->idu }}">{{ $users->nama}}</option>
                                 @endforeach
                                 </select>
                             </div>

@@ -31,12 +31,12 @@ class LaporanReqController extends Controller
     }
 
     public function datareq(){
-        $data = laporan_request::paginate(15);
+        $data = laporan_request::paginate(10000);
         return view('data.datareq',compact('data'));
     }
 
     public function datareqsuc(){
-        $data = laporan_request::paginate(15);
+        $data = laporan_request::paginate(10000);
         return view('data.datareqsuc',compact('data'));
     }
 
@@ -45,7 +45,7 @@ class LaporanReqController extends Controller
         laporan_request::create($request->all());
         // return view('data.datarequest');
         Session::flash('tes','Data berhasil diproses, silahkan menunggu respons team IT');
-        return redirect()->route('logout');
+        return redirect()->route('users');
     }
 
     public function prosesreq($idr){

@@ -92,4 +92,9 @@ class InventoryController extends Controller
         return view('function.detailsinven', compact('data','divisi','lokasi','users'));
     }
 
+    public function error(){
+        return view('error.404');
+    }
+
+
 }

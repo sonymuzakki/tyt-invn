@@ -15,7 +15,7 @@
             <div class="d-sm-none d-lg-inline-block">Hi, Admin</div></a>
             <div class="dropdown-menu dropdown-menu-right">
               <div class="dropdown-divider"></div>
-              <a href="logout" class="dropdown-item has-icon text-danger">
+              <a href="" class="dropdown-item has-icon text-danger">
                 <i class="fas fa-sign-out-alt"></i> Logout
               </a>
             </div>
@@ -33,7 +33,7 @@
           <ul class="sidebar-menu">
               <li class="menu-header"></li>
               <li class="nav-item dropdown active">
-                <a href="/" class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></a>
+                <a href="/dahsboard" class="nav-link"><i class="fas fa-fire"></i><span>Dashboard</span></a>
               </li>
               <li class="menu-header">Administrator</li>
               <li class="nav-item dropdown">

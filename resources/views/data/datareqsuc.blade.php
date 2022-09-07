@@ -32,6 +32,7 @@
                 <th scope="col">Laporan Users</th>
                 <th scope="col">Tanggal</th>
                 <th scope="col">Status</th>
+                <th scope="col">Aksi</th>
 
             </thead>
             <tbody>
