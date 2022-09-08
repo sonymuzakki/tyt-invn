@@ -13,6 +13,8 @@
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/dt-1.12.1/r-2.3.0/datatables.min.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
 
   <!-- CSS Libraries -->
 
@@ -20,6 +22,7 @@
   <!-- Template CSS -->
   <link rel="stylesheet" href="../assets/css/style.css">
   <link rel="stylesheet" href="../assets/css/components.css">
+
 </head>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -79,6 +82,17 @@
   </div>
 
 <body>
+
+    {{--  @if ($errors->any())
+      <div class="alert alert-danger">
+          <ul>
+              @foreach ($errors->all() as $error)
+                  <li>{{ $error }}</li>
+              @endforeach
+          </ul>
+      </div>
+      @endif  --}}
+
     <div class="main-content">
         <section class="section">
           <div class="section-header">
@@ -97,19 +111,36 @@
                             @csrf
                                 <div class="mb-3">
                                     <label  for="ExampleInputEmail" class="form-label">Pengguna</label>
-                                    <select class="form-control" name="idu" aria-label="Default Select example">
+                                    <select class="form-control @error('idu') is-invalid @enderror" name="idu" aria-label="Default Select example " >
                                         <option>Select Option ..</option>
                                     @foreach ($data as $users )
-                                        <option value="1">{{ $users->nama}}</option>
+                                        <option value="{{ $users->nama}}">{{ $users->nama}}</option>
                                     @endforeach
                                     </select>
                                 </div>
+                                @error('idu')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                                    {{--  foreach ($errors->get('province') as $message) {
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>  --}}
+                                {{--  <div class="mb-4">
+                                    <select style="width: 200px" id="id" name="idu">
+                                        <option></option>
+                                        @foreach($data as $d)
+                                          <option>{{$d->users}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>  --}}
                                 <div class="mb-3">
                                     <label for="exampleFormControlInput1" class="form-label">Keterangan</label>
                                     <input type="text" class="form-control" name="laporan" id="exampleFormControlInput1" placeholder="" >
                                 </div>
-
-                                <button type="submit" class="btn btn-success btn-lg tambah data-id = {{ $data }}"</button>Submit</button>
+                                @error('laporan')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                                <button type="submit" class=" transition delay-300 duration-300 ease-in-out btn btn-success btn-lg tambah data-id = {{ $data }}"</button>Submit</button>
                                 {{--  <a href="#" class="btn btn-succes btn-lg tambah" data-id="{{ $data }}" </a> Submit</a>  --}}
 
                             </form>
@@ -133,7 +164,14 @@
   <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/dt-1.12.1/r-2.3.0/datatables.min.js"></script>
   <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 
+  <script type="text/javascript">
+
+    $("#id").select2({
+          placeholder: "Select a Name",
+      });
+  </script>
 
 
   <!-- JS Libraies -->

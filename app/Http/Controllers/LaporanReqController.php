@@ -42,6 +42,11 @@ class LaporanReqController extends Controller
 
     public function tambahreq(Request $request){
         // dd($request->all());
+        $this->validate($request,[
+            'idu' => 'required|exists:App\Models\users  ,idu',
+           'laporan' => 'required|min:5|max:300',
+        ]);
+
         laporan_request::create($request->all());
         // return view('data.datarequest');
         Session::flash('tes','Data berhasil diproses, silahkan menunggu respons team IT');

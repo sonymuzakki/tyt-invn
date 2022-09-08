@@ -9,6 +9,9 @@
   <!-- General CSS Files -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+
 
   <!-- CSS Libraries -->
   <link rel="stylesheet" href="../node_modules/bootstrap-social/bootstrap-social.css">
@@ -37,13 +40,13 @@
             </div>
 
             <div class="card card-primary">
-              <div class="card-header justify-content-center"><h4>Login </h4></div>
+              <div class="card-header justify-content-center"><a href="adminlogin"><h4>Login</h4></a></div>
 
               <div class="card-body ">
                 <form method="POST" action="/loginproses" class="needs-validation" novalidate="">
                     <form action="/loginproses" method="POST">
                     @csrf
-                    <div class="mb-4">
+                    {{--  <div class="mb-4">
                         <label  for="ExampleInputEmail" class="form-label">Pengguna</label>
                             <select class="form-control" name="idu" aria-label="Default Select example">
                                 <option>Select Option ..</option>
@@ -51,23 +54,23 @@
                                 <option value="{{ $users->idu }}">{{ $users->nama}}</option>
                                 @endforeach
                             </select>
+                    </div>  --}}
+                    <div class="mb-4">
+                        <select style="width: 200px" id="nameid">
+                            <option></option>
+                            @foreach($data as $d)
+                              <option>{{$d->nama}}</option>
+                            @endforeach
+                        </select>
                     </div>
-
                   <div class="form-group">
                     <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">
                       Login
                     </button>
                   </div>
-                  <div class="float-right">
-                    <a href="/adminlogin">Login Admin</a>
-                </div>
                 </form>
-
               </div>
             </div>
-            {{--  <div class="simple-footer bg-primary text-bold text-white">
-              Copyright &copy; ITSD 2022
-            </div>  --}}
           </div>
         </div>
       </div>
@@ -81,6 +84,21 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   <script src="../assets/js/stisla.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js" integrity="sha512-2ImtlRlf2VVmiGZsjm9bEyhjGW4dU7B6TNwh/hx/iSByxNENtj3WVE6o/9Lj4TJeVXPi4bnOIMXFIJJAeufa0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+
+<script type="text/javascript">
+
+      $("#nameid").select2({
+            placeholder: "Select a Name",
+            allowClear: true
+        });
+</script>
+
+
+
 
   <!-- JS Libraies -->
 
@@ -92,3 +110,16 @@
   <!-- Page Specific JS File -->
 </body>
 </html>
+
+{{--  <script type="text/javascript">
+    // In your Javascript (external .js resource or <script> tag)
+        $("#nama).select2({
+            placeholder: 'select a name',
+            allowClear:true
+        });
+
+</script>  --}}
+// In your Javascript (external .js resource or <script> tag)
+    $(document).ready(function() {
+        $('.js-example-basic-single').select2();
+    });

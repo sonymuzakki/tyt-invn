@@ -71,7 +71,5 @@ Route::post('/adminproses',[LoginController::class,'adminproses'])->name('adminp
 Route::get('/register',[LoginController::class,'register'])->name('register');
 Route::post('/regisproses',[LoginController::class,'regisproses'])->name('regisproses');
 
-
-
 // error
 Route::get('/404',[InventoryController::class,'error'])->name('404');
