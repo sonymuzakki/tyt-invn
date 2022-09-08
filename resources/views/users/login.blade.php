@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-  <title>TINVES | Login </title>
+  <title>TINVES | LOGIN </title>
   <link rel="icon" href="../assets/img/29.png" width="50 " class="img-rounded-circle">
 
   <!-- General CSS Files -->
