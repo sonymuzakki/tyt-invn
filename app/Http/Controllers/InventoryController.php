@@ -37,7 +37,7 @@ class InventoryController extends Controller
 
 
     public function datainven(){
-        $data = inventory::paginate(10);
+        $data = inventory::paginate(1000);
         return view('data.datainven',compact('data'));
     }
 

@@ -43,7 +43,7 @@ class LaporanReqController extends Controller
     public function tambahreq(Request $request){
         // dd($request->all());
         $this->validate($request,[
-            'idu' => 'required|exists:App\Models\users  ,idu',
+           'idu' => 'required|exists:App\Models\users,idu',
            'laporan' => 'required|min:5|max:300',
         ]);
 
@@ -64,7 +64,7 @@ class LaporanReqController extends Controller
         $data = laporan_request::find($idr);
         $users = users::all();
         $data->update($request->all());
-        return redirect()->route('datareqsuc',compact('data','users'));
+        return redirect()->route('reqdata',compact('data','users'));
     }
 
     // public function updateproses(Request $request, $idr){

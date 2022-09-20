@@ -29,8 +29,8 @@
                 <th scope="col">Pengguna</th>
                 <th scope="col">Laporan Users</th>
                 <th scope="col">Tanggal</th>
-                <th scope="col">Proses</th>
                 <th scope="col">Status</th>
+                <th scope="col">Proses</th>
 
             </thead>
             <tbody>
@@ -43,18 +43,23 @@
                 <td>{{ $row->users->nama}}</td>
                 <td>{{ $row->laporan }}</td>
                 <td>{{ $row->created_at->format('l\,d-m-Y h:i')}}</td>
-                <td>
+                {{--  <td>
                     <div class="btn-group" role="group" aria-label="Basic example">
                         <a href="/prosesreq/ {{ $row->idr }}"  class="btn btn-primary"><i class="bi bi-clock-history"></i></a>
                    </div>
+                </td>  --}}
+                <td>
+                    <input type= "checkbox" class="toggle-class" data-id="{{ $row->idr }}" data-toggle="toggle" data-style="slow"
+                    data-on="Finish" data-off="Unfinished" {{ $row->status == true ? 'checked' : '' }}
                 </td>
                 <td>
-                    <div class="btn-group" role="group" aria-label="Basic example" class="float-left">
+                    {{--  <div class="btn-group" role="group" aria-label="Basic example" class="float-left">
                         <a href="/editusers/ {{ $row->idu }}"  class="btn btn-warning"><i class="fa-solid fa-spinner"></i></a>
-                    </div>
+                    </div>  --}}
                     <div class="btn-group" role="group" aria-label="Basic example">
                          <a href="/prosesreq/ {{ $row->idr }}"  class="btn btn-primary"><i class="fa-regular fa-circle-check"></i></a>
                     </div>
+
                 </td
             </tr>
             @endforeach
@@ -65,5 +70,19 @@
         </div>
         </div>
     </section>
+
+    @push('scripts')
+
+    <script>
+        $(function() {
+          $('#toggle-two').bootstrapToggle({
+            on: 'Enabled',
+            off: 'Disabled'
+          });
+        })
+      </script>
+
+    @endpush
+
 @endsection
 

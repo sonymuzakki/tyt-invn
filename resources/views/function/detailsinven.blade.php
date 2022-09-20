@@ -162,7 +162,7 @@
                         <div class="row">
                             <div class="col-6 mb-2">
                                 <label for="exampleFormControlInput1" class="form-label">Ram</label>
-                                <input type="text" class="form-control" name="ram" id="exampleFormControlInput1" placeholder="" value="{{ $data->ram }}"disableddisabled>
+                                <input type="text" class="form-control" name="ram" id="exampleFormControlInput1" placeholder="" value="{{ $data->ram }}"disabled>
                             </div>
                             <div class="col-6 mb-2">
                                 <label for="exampleFormControlInput1" class="form-label">Anydesk ID</label>
@@ -202,6 +202,9 @@
                                 </select>
                             </div>
                         </div>
+
+
+
                         <a href="/datainven"  type="submit" class="btn btn-primary btn-lg mb-2 mt-3"</a>Back</a>
                         <button type="submit" class="btn btn-success btn-lg mb-2 mt-3"</button>Submit</button>
                         </form>
